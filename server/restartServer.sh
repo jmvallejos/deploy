@@ -1,3 +1,4 @@
 #!/bin/bash 
-sudo dotnet /home/ec2-user/desarrollo/deploy/PruebaAws.dll
+sudo cd /home/ec2-user/desarrollo/deploy/
+sudo dotnet PruebaAws.dll
 exit 0
