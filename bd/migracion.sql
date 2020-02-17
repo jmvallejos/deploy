@@ -1,9 +1,11 @@
-ALTER TABLE `Personas` ADD `Direccion` longtext CHARACTER SET utf8mb4 NULL;
+ALTER TABLE `Personas` DROP COLUMN `Direccion`;
+
+ALTER TABLE `Personas` DROP COLUMN `Fecha`;
+
+ALTER TABLE `Personas` DROP COLUMN `Hijos`;
+
+ALTER TABLE `Personas` DROP COLUMN `Profesion`;
 
 INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
-VALUES ('20200217032708_personaDireccion', '3.0.0');
+VALUES ('20200217035208_borrar-propiedades', '3.0.0');
 
-ALTER TABLE `Personas` ADD `Fecha` longtext CHARACTER SET utf8mb4 NULL;
-
-INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
-VALUES ('20200217032755_personaFecha', '3.0.0');

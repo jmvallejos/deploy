@@ -17,5 +17,6 @@ sudo systemctl restart httpd
 sudo systemctl enable httpd
 sudo bash -c 'echo "sh /home/ec2-user/desarrollo/server/restartServer.sh &" >> /etc/rc.d/rc.local'
 sudo chmod u+x /etc/rc.d/rc.local
+sudo chmod u+x /home/ec2-user/desarrollo/server/actualizarVersion.sh
 cd /home/ec2-user/desarrollo/deploy/
 sudo dotnet PruebaAws.dll
