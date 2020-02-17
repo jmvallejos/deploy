@@ -1,0 +1,21 @@
+#!/bin/bash 
+sudo yum update -y
+sudo yum install git -y
+sudo yum install mysql -y
+cd /home/ec2-user/
+git clone https://github.com/jmvallejos/desarrollo.git
+cd /home/ec2-user/desarrollo/bd
+mysql --host=aws-test.cya8y4zpsur6.sa-east-1.rds.amazonaws.com --user=sa --password=11962827 registroCivil< "migracion.sql"
+sudo rpm -Uvh https://packages.microsoft.com/config/centos/7/packages-microsoft-prod.rpm
+sudo yum install dotnet-runtime-3.0 -y
+sudo yum install aspnetcore-runtime-3.0 -y
+sudo yum install dotnet-sdk-3.0 -y
+sudo yum -y install httpd mod_ssl
+cd /home/ec2-user/desarrollo/server/
+sudo mv reverseProxy.conf /etc/httpd/conf.d/
+sudo systemctl restart httpd
+sudo systemctl enable httpd
+sudo bash -c 'echo "sh /home/ec2-user/desarrollo/server/restartServer.sh &" >> /etc/rc.d/rc.local'
+sudo chmod u+x /etc/rc.d/rc.local
+cd /home/ec2-user/desarrollo/deploy/
+sudo dotnet PruebaAws.dll
